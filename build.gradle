@@ -1,0 +1,65 @@
+apply plugin: 'cpp'
+
+def appdSDKBase = "extlibs/appdynamics-sdk-native"
+
+model {
+    buildTypes {
+        debug
+        release
+    }
+
+    platforms {
+        x64 {
+            architecture "x86_64"
+        }
+    }
+
+    repositories {
+        libs(PrebuiltLibraries) {
+            appdynamics {
+                def appdSDKLibDir = "${appdSDKBase}/sdk_lib/lib"
+
+                headers.srcDir "${appdSDKBase}/sdk_lib"
+
+                binaries.withType(SharedLibraryBinary) {
+                    def os = targetPlatform.operatingSystem
+                    if (os.windows) {
+                        // Windows uses a .dll file, with a different link file if it exists (not Cygwin or MinGW)
+                        sharedLibraryFile = file("${appdSDKLibDir}/appdynamics_native_sdk.dll")
+                        if (file("${appdSDKLibDir}/appdynamics_native_sdk.lib").exists()) {
+                            sharedLibraryLinkFile = file("${appdSDKLibDir}/appdynamics_native_sdk.lib")
+                        }
+                    } else if (os.macOsX) {
+                        sharedLibraryFile = file("${appdSDKLibDir}/libappdynamics_native_sdk.dylib")
+                    } else {
+                        sharedLibraryFile = file("${appdSDKLibDir}/libappdynamics_native_sdk.so")
+                    }
+                }
+            }
+//            boost {
+//                headers.srcDir "extlibs/boost_1_55_0/boost"
+//            }
+        }
+    }
+
+//    binaries {
+//        all {
+//            cppCompiler.define "_4_2_1_or_later"
+//        }
+//    }
+
+    components {
+        main(NativeExecutableSpec) {
+            targetPlatform "x64"
+            baseName = project.name
+            sources {
+//                cpp.lib library: 'boost', linkage: 'api'
+                cpp.lib library: 'appdynamics', linkage: 'shared'
+            }
+        }
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.0'
+}

@@ -1,0 +1,4 @@
+# for now, ignore everything as it's only for appdynamics
+*
+# except for this file
+!.gitignore
