@@ -1,15 +1,8 @@
-// ************************************************************************************************************
-// ******                                                                                                ******
-// ****** PROGRAM: C_SDK_example.cpp                                                                     ******
-// ******                                                                                                ******
-// ******                                                                                                ******
-// ****** SOLE PROPERTY OF APPDYNAMICS, INC.  ALL RIGHTS RESERVED.                                       ******
-// ******                                                                                                ******
-// ****** This program is soley for instructional use.  Its purpose is only to indicate how one "might"  ******
-// ****** implement the C SDK Agent calls.   This software will not be supported by AppDynnamics nor is  ******
-// ****** there any guarantee, implied or otherwise, that it will work.   Use at your own risk.          ******
-// ******                                                                                                ******
-// ************************************************************************************************************
+>  PROGRAM: C_SDK_example.cpp          
+>                                   
+>  SOLE PROPERTY OF APPDYNAMICS, INC.  ALL RIGHTS RESERVED.
+>       
+>  This program is soley for instructional use.  Its purpose is only to indicate how one "might" mplement the C SDK Agent calls.   This software will not be supported by AppDynnamics nor isnthere any guarantee, implied or otherwise, that it will work.   Use at your own risk.
 
 
 # README - How to use
