@@ -21,12 +21,12 @@
 
 ## SDK Setup
 
-**Linux**:
+### Linux:
 1. `cd extlibs/appdynamics-sdk-native`
 2. run `chmod 777 logs`
 3. run `./install.sh`
 
-**Windows**:
+### Windows:
 1. open extlibs\appdynamics-sdk-native in finder
 2. double-click `install.bat`
 
@@ -38,7 +38,11 @@
 3. run ``LD_LIBRARY_PATH=`pwd`/extlibs/appdynamics-sdk-native/sdk-lib/lib ./build/exe/main/debug/C_SDK_Example``
 
 ### Windows
-1. Run in VC++
+1. Navigate to extlibs/appdyamics-sdk-native/proxy in file manager
+2. double click proxy.cmd
+3. Run in VC++
+
+**NOTE:** The example requires ports 10101,10102,10103 to be open for localhost in the firewall.
 
 ## Extras
 
